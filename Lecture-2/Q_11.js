@@ -5,7 +5,7 @@ Variable two:
 Variable three:
 Variable four:
 Variable five:
-Your task is to assign appropriate numerical values to each variable and compute their product. Write your answers */
+Your task is to assign appropriate numerical values to each variable and compute their product. Write your answers  */
 var one = 1;
 var two = 2;
 var three = 3;

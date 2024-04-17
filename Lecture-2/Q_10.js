@@ -8,7 +8,7 @@ After performing all the above operations, print the updated value
 sample input
 4
 sample output
-9 */
+9  */
 
 const prompt = require("prompt-sync")({ sigint: true });
 

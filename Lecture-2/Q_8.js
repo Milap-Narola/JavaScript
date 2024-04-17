@@ -3,8 +3,7 @@ You are given a number stored in a variable, with the name number , Multiply the
 input 
 2
 output
-100
- */
+100 */
 
 
 

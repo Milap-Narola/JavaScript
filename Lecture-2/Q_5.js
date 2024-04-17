@@ -1,7 +1,7 @@
 /*Q.5create three variables and assign numerical values to them. 
 Add the values of the first two variables together, 
 then divide the result by the value of the third variable. Lastly,
- display the remainder of the division. */
+ display the remainder of the division.  */
 
 
 

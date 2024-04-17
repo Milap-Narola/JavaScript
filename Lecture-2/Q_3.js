@@ -3,7 +3,7 @@ one, two, three, four, five
 and assign value to all
 then after you have to sum all and make it double 
 suppose after sum you got 50 
-the result should be 100 */
+the result should be 100  */
 
 let a = 10;
 let b = 15;

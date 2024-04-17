@@ -3,7 +3,7 @@ then you have to make it a cube
 input 
 2
 output
-8 */
+8  */
 
 
 

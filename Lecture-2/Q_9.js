@@ -5,7 +5,7 @@ Variable two:
 Variable three:
 Variable four:
 Variable five:
-You assign appropriate numerical values to each variable and compute their sum. Write your answers in */
+You assign appropriate numerical values to each variable and compute their sum. Write your answers in  */
 
 
 var one = 10;

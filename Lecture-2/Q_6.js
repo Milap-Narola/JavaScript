@@ -4,7 +4,7 @@ subtract c
 a = 10,b = 20,c = 30, d = 40 = 70 
 a + b + d - c = 40
 print result
-var sum=a+b+d-c */
+var sum=a+b+d-c  */
 
 var a = 1;
 var b = 2;

@@ -5,7 +5,7 @@ Note: The square of a number, is a number multiplied by itself. For example, the
 input 
 1 2 3
 output
-14*/
+14 */
 
 
 let a = 1;

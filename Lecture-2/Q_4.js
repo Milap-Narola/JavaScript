@@ -1,4 +1,4 @@
-/*Q.4 you have to create 7 variables like A, B, C, D, E, F, G. Find out the product of (A + B + C) * (D + E + F + G). */
+/*Q.4  you have to create 7 variables like A, B, C, D, E, F, G. Find out the product of (A + B + C) * (D + E + F + G). */
 
 
 
