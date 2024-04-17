@@ -9,4 +9,4 @@ let d = 40
 let e = 50
 let f = 60
 let g = 70
-console.log((a + b + c) * (d + c + e + f + g));
+console.log((a + b + c) * (d + e + f + g));
