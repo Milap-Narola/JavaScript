@@ -9,12 +9,12 @@ output
 const prompt = require("prompt-sync")({ sigint: true });
 
 
-var input = prompt("Enter a number:");
+let input = prompt("Enter a number:");
 
-var num = parseInt(input);
+let num = parseInt(input);
 
 
-var square = num * num;
+let square = num * num;
 
 
 console.log("The square of " + num + " is: " + square);

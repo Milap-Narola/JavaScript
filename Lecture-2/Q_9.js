@@ -8,13 +8,13 @@ Variable five:
 You assign appropriate numerical values to each variable and compute their sum. Write your answers in  */
 
 
-var one = 10;
-var two = 20;
-var three = 30;
-var four = 40;
-var five = 50;
+let one = 10;
+let two = 20;
+let three = 30;
+let four = 40;
+let five = 50;
 
-var sum = one + two + three + four + five;
+let sum = one + two + three + four + five;
 
 
 console.log("The sum is: " , sum);

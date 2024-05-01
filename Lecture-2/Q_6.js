@@ -6,9 +6,9 @@ a + b + d - c = 40
 print result
 var sum=a+b+d-c  */
 
-var a = 1;
-var b = 2;
-var c = 3;
-var d = 4;
-var subtract = a + b + d - c;
+let a = 1;
+let b = 2;
+let c = 3;
+let d = 4;
+let subtract = a + b + d - c;
 console.log("The Subtract is :",subtract);

@@ -13,9 +13,9 @@ sample output
 const prompt = require("prompt-sync")({ sigint: true });
 
 
-var input = prompt("Enter a number:");
+let input = prompt("Enter a number:");
 
-var num = parseInt(input);
+let num = parseInt(input);
 
 num += 7;
 num *= 3;

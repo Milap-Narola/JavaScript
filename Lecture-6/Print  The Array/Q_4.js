@@ -1,10 +1,10 @@
 
 const printArray = () => {
 
-    var inputString = document.getElementById('arrayInput').value;
+    let inputString = document.getElementById('arrayInput').value;
 
 
-    var outputElement = document.getElementById('output');
+    let outputElement = document.getElementById('output');
     outputElement.innerHTML = '';
 
     for (let i = 0; i < arr.length; i++) {

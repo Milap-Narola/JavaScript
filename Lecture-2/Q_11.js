@@ -6,13 +6,13 @@ Variable three:
 Variable four:
 Variable five:
 Your task is to assign appropriate numerical values to each variable and compute their product. Write your answers  */
-var one = 1;
-var two = 2;
-var three = 3;
-var four = 4;
-var five = 5;
+let one = 1;
+let two = 2;
+let three = 3;
+let four = 4;
+let five = 5;
 
-var Multiply = one * two * three * four * five;
+let Multiply = one * two * three * four * five;
 
 
 console.log("The Multiply Is: " , Multiply);

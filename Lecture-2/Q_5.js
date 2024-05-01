@@ -5,14 +5,14 @@ then divide the result by the value of the third variable. Lastly,
 
 
 
-var a = 10;
-var b = 5;
-var c = 3;
+let a = 10;
+let b = 5;
+let c = 3;
 
-var sum = a + b;
+let sum = a + b;
 
-var divide = sum / c;
+let divide = sum / c;
+let remainder = sum % c;
 
-var remainder = sum % c;
 
 console.log("The Remainder is :", remainder);

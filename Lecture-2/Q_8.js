@@ -12,10 +12,10 @@ const prompt = require("prompt-sync")({ sigint: true });
 
 var input = prompt("Enter a number:");
 
-var num = parseInt(input);
+let num = parseInt(input);
 
 
-var Multiply = num * 2;
+let Multiply = num * 2;
 
 
 console.log("Multiply of " + num +  " by 2 is: " + Multiply);

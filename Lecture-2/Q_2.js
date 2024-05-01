@@ -10,12 +10,12 @@ output
 const prompt = require("prompt-sync")({ sigint: true });
 
 
-var input = prompt("Enter a number:");
+let input = prompt("Enter a number:");
 
-var num = parseInt(input);
+let num = parseInt(input);
 
 
-var cube = num * num * num;
+let cube = num * num * num;
 
 
 console.log("The cube of " + num + " is: " + cube);

@@ -9,16 +9,16 @@ function arrayToLower(array) {
 
 const arrayToLowerCase=()=> {
 
-    var inputString = document.getElementById("inputString").value;
+    let inputString = document.getElementById("inputString").value;
 
 
-    var inputArray = inputString.split(" ");
+    let inputArray = inputString.split(" ");
 
 
-    var lowercaseArray = arrayToLower(inputArray);
+    let lowercaseArray = arrayToLower(inputArray);
 
 
-    var outputString = lowercaseArray.join(" ");
+    let outputString = lowercaseArray.join(" ");
 
 
     document.getElementById("output").innerText = outputString;

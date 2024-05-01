@@ -1,10 +1,10 @@
-function findMax() {
-    var input = document.getElementById("numInput").value;
-    var numArray = input.split(",").map(Number);
+const findMax = () => {
+    let input = document.getElementById("numInput").value;
+    let numArray = input.split(",").map(Number);
 
-    var max = numArray[0];
+    let max = numArray[0];
 
-    for (var i = 1; i < numArray.length; i++) {
+    for (let i = 1; i < numArray.length; i++) {
         if (numArray[i] > max) {
             max = numArray[i];
         }
