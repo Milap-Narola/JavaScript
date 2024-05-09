@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append_Item</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #product {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+        }
+
+        @media screen and (max-width: 768px) {
+            #product {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        .main {
+            border: 1px solid black;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .main div img {
+            padding: 30px;
+            text-align: center;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="product"></div>
+</body>
+<script src="script.js"></script>
+
+</html>
