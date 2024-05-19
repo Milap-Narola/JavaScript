@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: hsl(0, 0%, 0%);
+            color: white;
+        }
+
+        .clock {
+            font-size: 4em;
+            font-weight: bold;
+
+        }
+
+        #hours,
+        #minutes,
+        #seconds {
+            margin: 50px;
+            animation: move 5s infinite;
+        }
+
+        @keyframes move {
+            0% {
+                background-color: white;
+                color: rgb(0, 20, 28);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                border-radius: 100px;
+                background-color: rgb(0, 7, 8);
+                color: rgb(255, 255, 255);
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="clock">
+            <span id="hours">12</span>:
+            <span id="minutes">60</span>:
+            <span id="seconds">60</span>:
+            <span id="am-or-pm">AM</span>
+        </div>
+    </div>
+</body>
+<script src="./script.js"></script>
+
+</html>
