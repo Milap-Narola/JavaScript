@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    width: 10%;
+    height: 30px;
+}
+
+
+.nav-item:hover {
+    color: white;
+    border-radius: 50px;
+    background-color: rgb(38, 125, 255);
+    transition: 0.7s;
+}
+
+.nav-link {
+    margin-right: 10px;
+    margin-left: 10px;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+
+.search {
+    background-color: rgb(2, 142, 249);
+    height: 30px;
+    width: 20%;
+    border-radius: 100px;
+    outline: none;
+    margin-right: -35px;
+    border: none;
+
+}
+
+i {
+    font-size: 20px;
+    color: rgb(0, 106, 255);
+}
+
+.banner {
+    background-image: url(https://iprospectcheck.com/wp-content/uploads/2020/01/healthcare-background-checks-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 100vh;
+    width: 100%;
+}
+
+.banner p {
+    position: absolute;
+    top: 500px;
+}
+
+.search {
+    background-color: white;
+    width: 100%;
+    height: 40px;
+}
+
+.btn0 {
+
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(0, 102, 255);
+    width: 200px;
+    height: 40px;
+}
+
+.new {
+    background-color: rgb(233, 241, 247);
+}
+
+.new i {
+    height: 40px;
+    width: 40px;
+    background-color: #b7c6e5;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 6px;
+}
+
+.medical i {
+
+    height: 40px;
+    width: 40px;
+    background-color: #EAF0FC;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 6px;
+}
+
+.checked {
+    color: orange;
+}
+
+.team2 img{
+    
+    width: 200px;
+    height: 250px;
+}
+.gallery2 img{
+width: 300px;
+height: 200px;
+}
