@@ -1,72 +1,60 @@
+
 class Employee {
-    constructor(name, age, position, baseSalary) {
+  constructor(name, salary,department, experience) {
       this.name = name;
-      this.age = age;
-      this.position = position;
-      this.baseSalary = baseSalary;
-    }
-  
-    getSalary() {
-      return this.baseSalary;
-    }
-  
-    displayInfo() {
-      console.log(`Name: ${this.name}, Age: ${this.age}, Position: ${this.position}, Salary: ${this.getSalary()}`);
-    }
+      this.salary = salary;
+      this.experience = experience;
+      this.department = department;
   }
-  
-  class HREmployee extends Employee {
-    constructor(name, age, position, baseSalary) {
-      super(name, age, position, baseSalary);
-    }
-  
-    hireEmployee(employeeList, employee) {
-      employeeList.push(employee);
-      console.log(`${employee.name} has been hired.`);
-    }
-  
-    fireEmployee(employeeList, employeeName) {
-      const index = employeeList.findIndex(emp => emp.name === employeeName);
-      if (index !== -1) {
-        employeeList.splice(index, 1);
-        console.log(`${employeeName} has been fired.`);
-      } else {
-        console.log(`${employeeName} not found.`);
-      }
-    }
-  
-    calculateSalary(employee) {
-      return employee.getSalary();
-    }
+}
+
+
+let employees = [];
+
+const hireEmp = () => {
+  let name = document.getElementById('name').value;
+  let salary = parseFloat(document.getElementById('salary').value);
+  let department= document.getElementById('department').value;
+  let experience = parseInt(document.getElementById('experience').value);
+
+  if (name && !isNaN(salary)&& department &&!isNaN(experience)) {
+      let newEmployee = new Employee(name, salary,department, experience);
+      employees.push(newEmployee);
+      employeeList();
   }
-  
-  let employees = [];
-  
-  const hr = new HREmployee('krupa', 30, 'HR Manager', 50000);
-  
+};
 
-  const emp1 = new Employee('Riya', 28, 'Developer', 70000);
-  const emp2 = new Employee('jay', 35, 'Designer', 65000);
-  const emp3 = new Employee('suman', 25, 'Ui\Ux', 45000);
-  const emp4 = new Employee('divya', 29, 'Android Developer', 55000);
-  const emp5 = new Employee('jignesh', 30, 'Data science', 40000);
-  
 
-  hr.hireEmployee(employees, emp1);
-  hr.hireEmployee(employees, emp2);
-  hr.hireEmployee(employees, emp3);
-  hr.hireEmployee(employees, emp4);
-  hr.hireEmployee(employees, emp5);
-  
+const fireEmployee = (name) => {
+  employees = employees.map(emp => emp.name !== name);
+  employeeList();
+};
 
-  employees.map(emp => emp.displayInfo());
-  
+const fireAllEmployees = () => {
+  employees = [];
+  employeeList();
+};
+const employeeList = () => {
+  let employeeList = document.getElementById('employeeList');
+  employeeList.innerHTML = '';
 
-  console.log(`Salary of ${emp1.name}: ${hr.calculateSalary(emp1)}`);
-  
+  employees.map(emp => {
+      let employeeItem = document.createElement('li');
+      employeeItem.textContent = `${emp.name} - $${emp.salary} - ${emp.department} ${emp.experience} years`;
 
-  hr.fireEmployee(employees, 'suman');
-  
+      let fireButton = document.createElement('button');
+      fireButton.textContent = 'Fire';
+      fireButton.classList.add('fire-btn');
+      fireButton.onclick = () => fireEmployee(emp.name);
 
-  employees.map(emp => emp.displayInfo());
-  
+      employeeItem.append(fireButton);
+      employeeList.append(employeeItem);
+  });
+};
+
+
+const fireunExperienced = () => {
+  employees = employees.map(emp => emp.experience > 2);
+employeeList();
+};
+
