@@ -1,0 +1,17 @@
+
+import navbar from "../components/navbar.js";
+let userdetails = JSON.parse(localStorage.getItem("user"));
+let isLogin = localStorage.getItem("isLogin") || false;
+if (!isLogin) {
+    window.location.href = "/Project-localstorage/pages/signup.html"
+}
+
+
+// console.log(navbar());
+
+if (userdetails) {
+    document.getElementById("navbar").innerHTML = navbar("logout", userdetails.username)
+}
+else {
+    document.getElementById("navbar").innerHTML = navbar()
+}
