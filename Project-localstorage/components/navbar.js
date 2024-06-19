@@ -41,8 +41,9 @@ const navbar = (login = "login", signup = "signup") => {
           type="search"
           placeholder="Search"
           aria-label="Search"
+          id="search-value"
         />
-        <button class="btn text-light " type="submit">Search</button>
+        <button class="btn text-light " id="btn1" type="submit">Search</button>
       </form>
     </div>
   </div>

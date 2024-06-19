@@ -1,5 +1,5 @@
 
-import navbar from "../components/navbar.js";
+import navbar from "../components/Navbar.js";
 let userdetails = JSON.parse(localStorage.getItem("user"));
 let isLogin = localStorage.getItem("isLogin") || false;
 if (!isLogin) {
