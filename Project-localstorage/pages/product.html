@@ -14,9 +14,28 @@
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+    <style>
+      #productList {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+    </style>
+
 </head>
 <body>
+  <div class="container-fluid">
     <div id="navbar"></div>
+
+    <div id="filters">
+      <div class="btn btn-info" id="LTH">LTH</div>
+      <div class="btn btn-info" id="HTL">HTL</div>
+      <div class="btn btn-info" id="men">men</div>
+      <div class="btn btn-info" id="women">women</div>
+      <div class="btn btn-info" id="kids">kids</div>
+
+    </div>
+    <div id="productList"></div>
+  </div>
 </body>
 <script src="../js/product.js" type="module"></script>
 </html>

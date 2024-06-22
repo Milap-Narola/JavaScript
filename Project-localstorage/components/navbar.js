@@ -35,13 +35,14 @@ const navbar = (login = "login", signup = "signup") => {
           <a class="nav-link text-light" href="/Project-localstorage/pages/Signup.html">${signup}</a>
         </li>
       </ul>
-      <form class="d-flex" role="search" >
+      <form class="d-flex" role="search" id="searching">
         <input
           class="form-control me-2 bg text-center "
           type="search"
           placeholder="Search"
           aria-label="Search"
-          id="search-value"
+          id="searchValue"
+
         />
         <button class="btn text-light " id="btn1" type="submit">Search</button>
       </form>

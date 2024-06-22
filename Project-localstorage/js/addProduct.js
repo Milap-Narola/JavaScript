@@ -22,9 +22,11 @@ const handleData = (e) => {
         title: getValue("title"),
         price: getValue("price"),
         img: getValue("img"),
-        category: getValue("category")
+        category: getValue("category"),
+        id: products.length == 0 ? 1 : products[products.length - 1].id + 1
     }
     products.push(product);
+    // console.log(product);
     localStorage.setItem("products", JSON.stringify(products));
 }
 
