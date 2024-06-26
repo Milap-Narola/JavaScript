@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background: rgb(115, 85, 190);
+    background: linear-gradient(90deg, rgba(115, 85, 190, 1) 26%, rgba(8, 185, 246, 1) 50%, rgba(255, 171, 0, 1) 97%);
+    border: none;
+}
+
+#searchValue {
+    padding: 2px;
+    margin: 10px;
+    border: none;
+}
+
+#btn1 {
+    padding: 2px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 50%;
+    background: rgb(5, 103, 164);
+    transition: .5s ease-in;
+}

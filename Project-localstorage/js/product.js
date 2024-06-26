@@ -54,7 +54,7 @@ const Mapper = (data) => {
         btn.addEventListener("click", () => handleCartList(ele))
         let div = document.createElement("div")
         div.append(img, title, price, category, btn)
-        document.getElementById("productList").append(div)
+        document.getElementById("productsList").append(div)
     })
 }
 

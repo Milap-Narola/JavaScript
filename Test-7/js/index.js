@@ -1,4 +1,3 @@
-
 import navbar from "../components/Navbar.js";
 
 let userdetails = JSON.parse(localStorage.getItem("user"));
@@ -6,7 +5,8 @@ let userdetails = JSON.parse(localStorage.getItem("user"));
 let isLogin = localStorage.getItem("isLogin") || false;
 
 if (!isLogin) {
-    window.location.href = "/Project-localstorage/pages/signup.html"
+    
+    window.location.href = "/Test-7/html/signup.html"
 }
 
 
