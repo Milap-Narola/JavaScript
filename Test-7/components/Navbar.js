@@ -20,7 +20,7 @@ const navbar = (login = "login", signup = "signup") => {
             <a class="nav-link text-light " aria-current="page" href="/Test-7/index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="/Test-7/html/addProduct.html">Add Tour</a>
+            <a class="nav-link text-light" href="/Test-7/html/page.html">Add Tour</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="/Test-7/html/login.html">${login}</a>
