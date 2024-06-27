@@ -1,5 +1,17 @@
 import navbar from "../components/Navbar.js";
-document.getElementById("navbar").innerHTML = navbar();
+import getValue from "../components/getValue.js";
+
+let isLogin = localStorage.getItem("isLogin") || false;
+let userdetails = JSON.parse(localStorage.getItem("user"));
+if (!isLogin) {
+    window.location.href = "/Test-7/html/signup.html"
+}
+if (userdetails) {
+    document.getElementById("navbar").innerHTML = navbar("logout", userdetails.username)
+}
+else {
+    document.getElementById("navbar").innerHTML = navbar()
+}
 
 let data = [
     {
@@ -12,7 +24,7 @@ let data = [
         ],
         comment: "",
         likes: JSON.parse(localStorage.getItem('likes_1')) || 0,
-        cost: 3000
+        price: 3000
     },
     {
         id: 2,
@@ -24,7 +36,7 @@ let data = [
         ],
         comment: "",
         likes: JSON.parse(localStorage.getItem('likes_2')) || 0,
-        cost: 3200
+        price: 3200
     },
     {
         id: 3,
@@ -36,7 +48,7 @@ let data = [
         ],
         comment: "",
         likes: JSON.parse(localStorage.getItem('likes_3')) || 0,
-        cost: 3000
+        price: 3000
     },
     {
         id: 4,
@@ -45,11 +57,10 @@ let data = [
         image: [
             "https://i3.wp.com/www.travelstart.co.za/blog/wp-content/uploads/2019/08/Jaipur-47.jpg",
             "https://www.oyorooms.com/travel-guide/wp-content/uploads/2022/03/Need-a-Vacation-Heres-Jaipur-The-Pink-Citys-Top-Must-See-Attractions.jpg"
-
         ],
         comment: "",
         likes: JSON.parse(localStorage.getItem('likes_4')) || 0,
-        cost: 5000
+        price: 5000
     },
     {
         id: 5,
@@ -58,11 +69,10 @@ let data = [
         image: [
             "https://cdn.enjoytravel.com/img/travel-news/kolkata-was-previously-called-calcutta.jpg",
             "https://sundayguardianlive.com/wp-content/uploads/2021/04/Prasenjit-K-Basu_Kolkata.jpg"
-
         ],
         comment: "",
         likes: JSON.parse(localStorage.getItem('likes_5')) || 0,
-        cost: 5500
+        price: 5500
     },
     {
         id: 6,
@@ -70,12 +80,11 @@ let data = [
         description: "Hyderabad is the city of India. It is the most populous for pearls city in India.",
         image: [
             "https://newsmeter.in/h-upload/2023/12/21/360664-whatsapp-image-2023-12-21-at-94400-am.webp",
-            "https://cdn.siasat.com/wp-content/uploads/2023/10/2023_10img08_Oct_2023_PTI10_08_2023_000020B-scaled.jpg "
-
+            "https://cdn.siasat.com/wp-content/uploads/2023/10/2023_10img08_Oct_2023_PTI10_08_2023_000020B-scaled.jpg"
         ],
         comment: "",
         likes: JSON.parse(localStorage.getItem('likes_6')) || 0,
-        cost: 2500
+        price: 2500
     },
 ];
 
@@ -88,9 +97,37 @@ const handleLike = (index) => {
     localStorage.setItem(`likes_${data[index].id}`, JSON.stringify(data[index].likes));
 };
 
+const isExists = (id) => {
+    let booking = JSON.parse(localStorage.getItem("booking")) || [];
+    let temp = booking.filter((item) => item.id === id);
+    return temp.length > 0;
+};
+
+const handleBooking = (ele) => {
+    let booking = JSON.parse(localStorage.getItem("booking")) || [];
+    if (isExists(ele.id)) {
+        booking = booking.map((item) => {
+            if (item.id === ele.id) {
+                item.qty += 1;
+            }
+            return item;
+        });
+        alert("One more added successfully");
+    } else {
+        booking.push({ ...ele, qty: 1 });
+        alert("Thanks for Booking!");
+
+        window.location.href = "/Test-7/html/Book.html"
+    }
+
+    localStorage.setItem("booking", JSON.stringify(booking));
+};
+
 const tourData = (data) => {
-    data.map((ele, index) => {
+    document.getElementById("tour-container").innerHTML = '';
+    data.forEach((ele, index) => {
         let div = document.createElement("div");
+
         let title = document.createElement("h1");
         title.innerHTML = ele.title;
 
@@ -101,29 +138,50 @@ const tourData = (data) => {
         let description = document.createElement("h6");
         description.innerHTML = `About: ${ele.description}`;
 
-        let cost = document.createElement("h3");
-        cost.innerHTML = `Cost: ${ele.cost}`;
+        let price = document.createElement("h3");
+        price.innerHTML = `Price: ${ele.price}`;
 
         let btn1 = document.createElement("span");
         btn1.innerHTML = `<i class="fa-regular fa-heart"></i>`;
         btn1.addEventListener("click", () => handleLike(index));
         btn1.classList.add("btn1");
-        
+
         let btnParent = document.createElement("div");
         let btn2 = document.createElement("button");
         btn2.innerHTML = "Book Now";
         btn2.classList.add("btn2");
-
+        btn2.addEventListener("click", () => handleBooking(ele));
 
         let likesParagraph = document.createElement("p");
         likesParagraph.classList.add("likes");
         likesParagraph.innerHTML = `Likes: ${ele.likes}`;
 
-        div.append(image, title, description, cost, likesParagraph, btnParent);
         btnParent.append(btn1, btn2);
+        div.append(image, title, description, price, likesParagraph, btnParent);
 
         div.classList.add("cityChild");
         document.getElementById("tour-container").append(div);
     });
 };
 tourData(data);
+
+const handleSort = (orderBy) => {
+    let sortedData = data.sort((a, b) => orderBy === "LTH" ? a.price - b.price : b.price - a.price);
+    tourData(sortedData);
+};
+
+document.getElementById("LTH").addEventListener("click", () => handleSort("LTH"));
+document.getElementById("HTL").addEventListener("click", () => handleSort("HTL"));
+
+
+const handleInput = (event) => {
+
+};
+
+const handleSearchData = (event) => {
+    event.preventDefault();
+
+};
+
+document.getElementById("searchValue").addEventListener("keypress", handleInput);
+document.getElementById("searching").addEventListener("submit", handleSearchData);

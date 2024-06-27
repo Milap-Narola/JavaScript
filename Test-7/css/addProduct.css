@@ -28,6 +28,9 @@
     margin: 10px;
     border-radius: 5px;
 }
+.btn2{
+    background-color:burlywood;
+}
 
 .btn1:hover{
     color: red;

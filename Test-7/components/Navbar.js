@@ -22,11 +22,15 @@ const navbar = (login = "login", signup = "signup") => {
           <li class="nav-item">
             <a class="nav-link text-light" href="/Test-7/html/page.html">Add Tour</a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link text-light" href="/Test-7/html/login.html">${login}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="/Test-7/html/signup.html">${signup}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/Test-7/html/Book.html">Booked</a>
           </li>
         </ul>
         <form class="d-flex" role="search" id="searching">
