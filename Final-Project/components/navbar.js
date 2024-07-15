@@ -16,23 +16,20 @@ const navbar = (login = "login", signup = "signup") => {
       </button>
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-          <li class="nav-item ">
-            <a class="nav-link text-light " aria-current="page" href="/Project-localstorage/index.html">Home</a>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/product.html">Product</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="/Project-localstorage/pages/product.html">Product</a>
+            <a class="nav-link text-light" href="/Final-Project/html/addProduct.html">Add Product</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="/Project-localstorage/pages/addProduct.html">Add Product</a>
+            <a class="nav-link text-light" href="/Final-Project/html/cart.html">Cart</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="/Project-localstorage/pages/cart.html">Cart</a>
+            <a class="nav-link text-light" href="/Final-Project/html/login.html">${login}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="/Project-localstorage/pages/Login.html">${login}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="/Project-localstorage/pages/Signup.html">${signup}</a>
+            <a class="nav-link text-light" href="/Final-Project/html/signup.html">${signup}</a>
           </li>
         </ul>
         <form class="d-flex" role="search" id="searching">

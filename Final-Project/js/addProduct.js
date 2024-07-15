@@ -1,10 +1,18 @@
-import navbar from"../components/navbar.js";
-document.getElementById('addProductForm').addEventListener('submit', handleData = (e) => {
+import navbar from "../components/navbar.js";
+
+document.getElementById('addProductForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
     if (!isLoggedIn()) {
         window.location.href = 'Final-Project/html/signup.html';
         return;
+
+    }
+    if (user) {
+        document.getElementById("navbar").innerHTML = navbar("logout", user, username)
+    }
+    else {
+        document.getElementById("navbar").innerHTML = navbar()
     }
 
     const productName = document.getElementById('productName').value;
