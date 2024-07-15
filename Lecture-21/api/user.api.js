@@ -89,7 +89,7 @@ export const login = async (user) => {
 }
 
 
-// update patch
+
 
 export const updateUser=async(id ,data)=>{
   let req=await  fetch(`http://localhost:3000/user/${id}`, {
