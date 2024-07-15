@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 775c476e070eea593bc4584e9d7ba306ef618d06
 const player = document.getElementById("player");
 const progress = document.getElementById("progress");
 const playbtn = document.getElementById("playbtn");
