@@ -79,7 +79,6 @@ const loadMusic=(song)=> {
     title.textContent = song.displayName;
     artist.textContent = song.artist;
     image.src = song.cover;
-    background.src = song.cover;
 }
 
 const changeMusic =(direction)=> {
