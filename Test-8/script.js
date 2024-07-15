@@ -1,115 +1,114 @@
 
-const player = document.getElementById("player");
-const progress = document.getElementById("progress");
-const playbtn = document.getElementById("playbtn");
-const prevbtn = document.getElementById("prevbtn");
-const nextbtn = document.getElementById("nextbtn");
-const titleDisplay = document.getElementById("title");
-const artistDisplay = document.getElementById("artist");
-const current = document.getElementById("current");
-const songImg = document.getElementById("songImg");
+const image = document.getElementById('cover'),
+    title = document.getElementById('music-title'),
+    artist = document.getElementById('music-artist'),
+    currentTimeEl = document.getElementById('current-time'),
+    durationEl = document.getElementById('duration'),
+    progress = document.getElementById('progress'),
+    playerProgress = document.getElementById('player-progress'),
+    prevBtn = document.getElementById('prev'),
+    nextBtn = document.getElementById('next'),
+    playBtn = document.getElementById('play'),
+    background = document.getElementById('bg-img');
+
+const music = new Audio();
 
 const songs = [
     {
-        title: "Jadon Khabran Ch Aunda Tera Naam",
-        artist: "Sidhu Moose Wala",
-        src: "https://youtu.be/WeweCvrU2fM?si=xU8U2P0Jtqv1bMrfhttps://rr2---sn-cvh76nl6.googlevideo.com/videoplayback?expire=1721044894&ei=PruUZq_WE6K06dsPt9el2A0&ip=144.76.140.134&id=o-ANVTrmiKU53RsEVdJRaZd6QgqJB_FL-ejePWjOvc0XhG&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&vprv=1&svpuc=1&mime=audio%2Fwebm&rqh=1&gir=yes&clen=4941379&dur=282.121&lmt=1717064284430163&keepalive=yes&c=ANDROID_TESTSUITE&txp=5432434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIgHENpNG5Lmv_EhP8IAKUFkOBEx7-gAxM0R_vs1MgAeKYCIQC02FmqPQ2IdXMLbM7ruBoAEE0WaS5Zf170-tM0xsYetw%3D%3D&rm=sn-4g5ezk76&fexp=24350516,24350518&req_id=9d1f77ec9e99a3ee&ipbypass=yes&redirect_counter=2&cm2rm=sn-bu2a-nu8s7s&cms_redirect=yes&cmsv=e&mh=-7&mip=27.116.48.74&mm=29&mn=sn-cvh76nl6&ms=rdu&mt=1721023016&mv=m&mvi=2&pl=24&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AHlkHjAwRgIhAI55YtEcM23NYxUpadNd7onk9ope-F5LTWoYKNNsCuVkAiEAhaI2GwnUX63_6Poiy54BGrqGKWULieUfWfCqYvEa5m8%3D",
-        img: ""
+        path: 'audio/ATTRACTION - SUKHA  PRODGK.mp3',
+        displayName: 'Attraction',
+        cover: 'audio/images (2).jpeg',
+        artist: 'SUKHA',
     },
     {
-        title: "Another Song",
-        artist: "Siddhu Moosewala",
-        src: "./audio/Jdo Khabra Ch Aunda Tera Naam(PagalWorld.com.so).mp3",
-        img: "./images/another-song.jpg"
+        path: 'audio/LOVE SICK _ Sidhu Moose Wala  AR Paisley  Mxrci  Official Visual Video  New Song 2022.mp3',
+        displayName: 'Love Sick',
+        cover: 'audio/images.jpeg',
+        artist: 'Sidhu Moose Wala',
     },
     {
-        title: "Third Song",
-        artist: "Pawan Singh Bhojpuriya",
-        src: "./audio/Lolipop Lagelu (Remix) - Dj Noise(PagalWorld.com.so).mp3",
-        img: "./images/third-song.jpg"
-    },
+        path: 'audio/Sangdi - Sukha  Manni Sandhu (Official Video).mp3',
+        displayName: 'Sangdi',
+        cover: 'audio/image(5).jpg',
+        artist: 'Manni Sandhu',
+    }, 
     {
-        title: "Fourth Song",
-        artist: "Jubin Nautiyal",
-        src: "./audio/Lut Gaye(PagalWorld.com.so).mp3",
-        img: "./images/fourth-song.jpg"
-    },
+        path: 'audio/Saun Di Jhadi - OtaaL (Official Music Video).mp3',
+        displayName: 'Saun Di Jhadi',
+        cover: 'audio/Music-Language.jpg',
+        artist: 'Otaal',
+    }, 
     {
-        title: "Fifth Song",
-        artist: "Nowhere",
-        src: "./audio/Faded(PagalWorld.com.so).mp3",
-        img: "./images/fifth-song.jpg"
+        path: 'audio/Tauba Tauba  Bad Newz  Vicky Kaushal  Triptii Dimri  Karan Aujla  In cinemas 19th July.mp3',
+        displayName: 'Tauba Tauba',
+        cover: 'audio/images (1).jpeg',
+        artist: 'Karan Aujla',
     }
 ];
 
-let currentIndex = 0;
+let musicIndex = 0;
+let isPlaying = false;
 
-
-const takesong = (index) => {
-    const { src, title, artist, img } = songs[index];
-    player.src = src;
-    titleDisplay.innerText = title;
-    artistDisplay.innerText = artist;
-    songImg.src = img;
-};
-
-
-const playPause = () => {
-    if (player.paused) {
-        player.play();
-        playbtn.classList.remove("paused");
+const togglePlay=()=> {
+    if (isPlaying) {
+        pauseMusic();
     } else {
-        player.pause();
-        playbtn.classList.add("paused");
+        playMusic();
     }
-};
+}
 
-playbtn.addEventListener("click", playPause);
+const playMusic=()=> {
+    isPlaying = true;
 
+    playBtn.classList.replace('fa-play', 'fa-pause');
+    playBtn.setAttribute('title', 'Pause');
+    music.play();
+}
 
-player.onplay = () => {
-    playbtn.classList.remove("fa-play");
-    playbtn.classList.add("fa-pause");
-};
+const pauseMusic=()=> {
+    isPlaying = false;
 
-player.onpause = () => {
-    playbtn.classList.add("fa-play");
-    playbtn.classList.remove("fa-pause");
-};
+    playBtn.classList.replace('fa-pause', 'fa-play');
 
+    playBtn.setAttribute('title', 'Play');
+    music.pause();
+}
 
-player.ontimeupdate = () => {
-    let ct = player.currentTime;
-    current.innerHTML = timeFormat(ct);
+const loadMusic=(song)=> {
+    music.src = song.path;
+    title.textContent = song.displayName;
+    artist.textContent = song.artist;
+    image.src = song.cover;
+    background.src = song.cover;
+}
 
-    let duration = player.duration;
-    let prog = Math.floor((ct * 100) / duration);
-    progress.style.width = prog + "%";
-};
+const changeMusic =(direction)=> {
+    musicIndex = (musicIndex + direction + songs.length) % songs.length;
+    loadMusic(songs[musicIndex]);
+    playMusic();
+}
 
+const updateProgressBar =()=> {
+    let { duration, currentTime } = music;
+    let progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
 
-const timeFormat = (ct) => {
-    let minutes = Math.floor(ct / 60);
-    let seconds = Math.floor(ct % 60);
-    if (seconds < 10) {
-        seconds = "0" + seconds;
-    }
-    return minutes + ":" + seconds;
-};
+    const formatTime = (time) => String(Math.floor(time)).padStart(2, '0');
+    durationEl.textContent = `${formatTime(duration / 60)}:${formatTime(duration % 60)}`;
+    currentTimeEl.textContent = `${formatTime(currentTime / 60)}:${formatTime(currentTime % 60)}`;
+}
 
+const setProgressBar =(e)=> {
+    let width = playerProgress.clientWidth;
+    let clickX = e.offsetX;
+    music.currentTime = (clickX / width) * music.duration;
+}
 
-prevbtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + songs.length) % songs.length;
-    loadSong(currentIndex);
-    player.play();
-});
+playBtn.addEventListener('click', togglePlay);
+prevBtn.addEventListener('click', () => changeMusic(-1));
+nextBtn.addEventListener('click', () => changeMusic(1));
+music.addEventListener('ended', () => changeMusic(1));
+music.addEventListener('timeupdate', updateProgressBar);
+playerProgress.addEventListener('click', setProgressBar);
 
-
-nextbtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % songs.length;
-    loadSong(currentIndex);
-    player.play();
-});
-
-
-takesong(currentIndex);
+loadMusic(songs[musicIndex]);
