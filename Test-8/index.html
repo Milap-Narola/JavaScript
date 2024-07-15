@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Audio Player</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <audio id="player"></audio>
+    <div class="player">
+        <div class="control">
+            <i class="fas fa-backward" id="prevbtn"></i>
+            <i class="fas fa-play" id="playbtn"></i>
+            <i class="fas fa-forward" id="nextbtn"></i>
+        </div>
+        <div class="info">
+            <img src="" alt="" id="songImg">
+            <marquee behavior="scroll" direction="left" id="songMarquee">
+                <span id="title">Title Here</span>
+            </marquee>
+            <span id="artist">Artist Name Here</span> 
+            <div class="bar" id="progressBar">
+                <div id="progress"></div>
+            </div>
+        </div>
+        <div id="current">0:00</div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
