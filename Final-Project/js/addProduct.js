@@ -4,7 +4,7 @@ document.getElementById('addProductForm').addEventListener('submit', function (e
     e.preventDefault();
 
     if (!isLoggedIn()) {
-        window.location.href = 'Final-Project/html/signup.html';
+        window.location.href = '/Final-Project/html/signup.html';
         return;
 
     }
@@ -36,5 +36,5 @@ document.getElementById('addProductForm').addEventListener('submit', function (e
 });
 
 const isLoggedIn = () => {
-    return !!localStorage.getItem('loggedInUser');
+    return localStorage.getItem('loggedInUser');
 }

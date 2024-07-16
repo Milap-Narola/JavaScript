@@ -1,5 +1,21 @@
 {
-    "user": [],
-    "products": [],
-    "cart": []
+  "user": [
+    {
+      "id": "3f0a",
+      "username": "milap5322",
+      "password": "milap53225322"
+    },
+    {
+      "id": "efb4",
+      "username": "milap5322",
+      "password": "Milap5322"
+    },
+    {
+      "id": "5fa9",
+      "username": "milap5322",
+      "password": "milap5322"
+    }
+  ],
+  "products": [],
+  "cart": []
 }

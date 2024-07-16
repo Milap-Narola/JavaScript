@@ -1,4 +1,4 @@
-document.getElementById('loginForm').addEventListener('submit', loadLogin = (e) => {
+document.getElementById('loginForm').addEventListener('submit',  (e) => {
     e.preventDefault();
 
     const username = document.getElementById('loginUsername').value;
@@ -11,7 +11,7 @@ document.getElementById('loginForm').addEventListener('submit', loadLogin = (e) 
             if (user) {
                 alert('Login successful!');
                 localStorage.setItem('loggedInUser', username);
-                window.location.href = 'addproduct.html'; 
+                window.location.href = '/Final-Project/html/addProduct.html'; 
             } else {
                 alert('Invalid credentials');
             }

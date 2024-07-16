@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', loadProducts = () => {
 
     if (!isLoggedIn()) {
-        window.location.href = 'Final-Project/html/signup.html';
+        window.location.href = '/Final-Project/html/signup.html';
         return;
     }
 });
@@ -18,10 +18,8 @@ const fetchProducts = () => {
             products.forEach(product => {
                 const li = document.createElement('li');
                 li.className = 'list-group-item d-flex justify-content-between align-items-center';
-                li.innerHTML = `
-                    <span>${product.name} - $${product.price}</span>
-                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(${product.id})">Delete</button>
-                `;
+                li.innerHTML = `<span>${product.name} - $${product.price}</span>
+        <button class="btn btn-danger btn-sm" onclick="deleteProduct(${product.id})">Delete</button>`;
                 productList.append(li);
             });
         })
@@ -33,7 +31,7 @@ const deleteProduct = (id) => {
         method: 'DELETE'
     }).then(response => {
         if (response.ok) {
-            fetchProducts(); // Refresh the product list after deletion
+            fetchProducts(); 
         } else {
             console.error('Failed to delete the product');
         }

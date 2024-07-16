@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', handleCart = () => {
 
     if (!isLoggedIn()) {
-        window.location.href = 'Final-Project/html/signup.html';
+        window.location.href = '/Final-Project/html/signup.html';
         return;
     }
 
@@ -48,5 +48,5 @@ const updateQuantity = (id, change) => {
 }
 
 const isLoggedIn = () => {
-    return !!localStorage.getItem('loggedInUser');
+    return localStorage.getItem('loggedInUser');
 }
