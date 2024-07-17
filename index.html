@@ -13,6 +13,7 @@
         display: grid;
         grid-template-columns: repeat(8, 1fr);
         gap: 50px;
+        margin-top: 10px;
 
     }
 
@@ -20,28 +21,35 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 10px 200px ;
         height: 50px;
         width: 200px;
         text-align: center;
-        background:rgb(255, 153, 90);
+        background: rgb(7, 52, 88);
         text-decoration: none;
         color: white;
-        text-shadow: 2px 5px 6px  black;
         font-weight: bold;
         font-size: large;
-
+        box-shadow: 2px 3px 5px 3px rgb(86, 84, 90);
     }
 
     a:hover {
         font-weight: bold;
-        color:rgb(128, 0, 214);
-        text-shadow:3px 6px 5px white ;
+        color: brown;
+        text-shadow: 3px 3px 6px white;
     }
 </style>
 
 <body>
-    <div class="container">
+    <h1 class="fw-bold text-center text-bg-danger">JavaScript</h1>
+
+    <form action="" id="searchForm" class="text-center  py-3">
+        <input type="text" name="search" placeholder="Search for Lectures" id="searchInput"
+            class=" text-center fw-bold">
+        <button type="submit" class="btn btn-success text-center px-3 m-2 ">Search</button>
+    </form>
+
+    <div class="container" id="lecturesContainer">
+
         <a href="/Lecture-1/">Basic-js-Consept-1</a>
         <br>
         <a href="/Lecture-2/">Basic-js-Consept-2</a>
@@ -54,7 +62,7 @@
         <br>
         <a href="/Lecture-6/">Basic-js-Consept-6</a>
         <br>
-        <a href="/Lecture-7/">-Basic-Js-Consept-7</a>
+        <a href="/Lecture-7/">Basic-Js-Consept-7</a>
         <br>
         <a href="/Lecture-8/index.html">StudentList-App</a>
         <br>
@@ -90,7 +98,7 @@
         <br>
         <a href="/Lecture-24/index.html">Google_Sheet-App</a>
         <br>
-        <a href="/Test-1/index.html">Employer Hire -Exam</a>
+        <a href="/Test-1/index.html">Employer Hire-Exam</a>
         <br>
         <a href="/Test-4/index.html">Bank-system-Exam</a>
         <br>
@@ -100,12 +108,28 @@
         <br>
         <a href="/Test-6/index.html">Library-system-Exam</a>
         <br>
-        <a href="/Test-7/index.html">Api-Exam</a>
+        <a href="/Test-7/index.html">Tourist-Exam</a>
         <br>
         <a href="/Musicplayer/index.html">AudioPlayer</a>
         <br>
         <a href="/Final-Project/html/addProduct.html">Final-Project</a>
     </div>
 </body>
+<script> document.getElementById('searchForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+        const lectureLinks = document.querySelectorAll('#lecturesContainer a');
+
+        lectureLinks.forEach(link => {
+            const text = link.textContent.toLowerCase();
+            if (text.includes(searchQuery)) {
+                link.style.display = 'block';
+            } else {
+                link.style.display = 'none';
+            }
+        });
+    });
+</script>
 
 </html>
