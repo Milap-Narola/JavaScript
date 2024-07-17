@@ -7,13 +7,12 @@ const handleData = (e) => {
     e.preventDefault();
     let user = {
         username: getValue("username"),
-        email: getValue("email"),
         password: getValue("password")
     }
 
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("isLogin", true)
-    window.location.href = "/Project-localstorage/"
+    window.location.href = "/Project-localstorage/pages/login.html"
 
 }
 

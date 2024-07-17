@@ -1,49 +1,32 @@
 import navbar from "../components/navbar.js";
-document.getElementById("navbar").innerHTML = navbar()
 
-const deletUser= async()=>{
-    const username = localStorage.getItem('loggedInUser');
-    fetch(`http://localhost:3000/user/${username}`, {
-        method: 'DELETE',
-    })
-   .then(response =>  response.json())
-   .then(()=>{
-        localStorage.removeItem('loggedInUser');
-        document.getElementById('navbar').innerHTML=navbar();
-        window.location.href = '/Final-Project/html/login.html'; 
-    { 
-        console.error('Error:', error); 
-    };
-       
-})}
+document.getElementById("navbar").innerHTML = navbar();
 
-
-
-
-
-
-
-
-
-document.getElementById('loginForm').addEventListener('submit',  (e) => {
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const username = document.getElementById('userName').value;
     const password = document.getElementById('userPassword').value;
 
-    fetch('http://localhost:3000/user')
-        .then(response => response.json())
-        .then(users => {
-            const user = users.find(u => u.username === username && u.password === password);
+    try {
+        const response = await fetch('http://localhost:3000/user');
+        const users = await response.json();
+        if (users) {
+            const user = users.find(user => user.username === username && user.password === password);
+
             if (user) {
-                alert('Login successful!');
-                localStorage.setItem('loggedInUser', username);
-                document.getElementById('navbar').innerHTML=("Logout",user,username);
-                window.location.href = '/Final-Project/html/index.html'; 
+                document.getElementById('navbar').innerHTML = navbar(users.username); 
+                localStorage.setItem('isLogin', 'true'); 
+                window.location.href = '/Final-Project/html/index.html';
             } else {
-                alert('Please Sign Up');
-                window.location.href = '/Final-Project/html/signup.html'; 
+                alert('Invalid username or password' );
+                window.location.href = '/Final-Project/html/signup.html';
             }
-        })
-        .catch(error => console.error('Error:', error));
+        } else {
+            alert('No users found');
+            window.location.href = '/Final-Project/html/signup.html';
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
 });
