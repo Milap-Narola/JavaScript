@@ -1,59 +1,36 @@
-const questionGet = async () => {
+let questionNo=0;
+let score=0;
+
+let question_title=document.getElementById("question_title");
+let option_list=document.getElementById("option-list");
+let score_area=document.getElementById("score-area");
+let btn_submit=document.getElementById("submit");
+let start=document.getElementById("start");
+let play_again=document.getElementById("play-again");
 
 
-    let req = await fetch('http://localhost:3000/Questions')
-    let res = await req.json()
-    uiMaker(res)
- 
-    // console.log(res);
-
-}
-
-const uiMaker = (res) => {
-
-    document.getElementById('questionsList').innerHTML = ''
-
-    res.map((ele) => {
-        let questionDiv = document.createElement('div')
-        questionDiv.innerHTML=ele.questionDiv
-        questionDiv.ele = document.createElement('p')
-         
-        questionDiv.ele.innerHTML = `Question: ${ele.question}`
-        let id = ele._id
-        questionDiv.ele.id = `answer-${id}`
-        questionDiv.addEventListener('click', ()=> {
-            answerQuestion(id)
-        })
-        questionDiv.append(questionDiv.ele)
-        document.getElementById('questionsList').append(questionDiv)
+hideItem('question_title')
+hideItem('option_list')
+hideItem('btn_submit')
+hideItem('play_again')
+hideItem('score_area')
 
 
-    })
+start.addEventListener('click', function(){
+showItem('question_title')
+showItem('option_list')
+showItem('btn_submit')
+loadQuestion()
+})
+function loadQuestion(){
+    
 }
 
 
-questionGet()
-
-const answerQuestion = async (id) => {
-
-    let res = await fetch(`http://localhost:3000/Questions/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ answer: answer })
-    })
-
-    if (res.ok) {
-        alert('Answer submitted successfully')
-        questionGet()
-    } else {
-        alert('Error submitting answer')
-    }
+function hideItem(element){
+    element.style.display="none";
 }
 
-let startButton = document.getElementById('startButton')
-  
-startButton.addEventListener('click', function () {
-     questionGet()
-})   
+function showItem(element){
+    element.style.display="block";
+}
