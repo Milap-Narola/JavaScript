@@ -1,0 +1,94 @@
+{
+    "Questions": [
+        {
+            "id": 1,
+            "question": "What is the capital of india?",
+            "A": "Gujarat",
+            "B": "Maharashtra",
+            "C": "Karnataka",
+            "D": "Delhi",
+            "answer": "D"
+        },
+        { 
+            "id": 2,
+            "question": "Who was the first Indian to win a Nobel Prize?",
+            "A": "Thomas Edison",
+            "B": "Mahatma Gandhi",
+            "C": "Leonardo da Vinci",
+            "D": "Ramanujan",
+            "answer": "B"
+        },
+        { 
+            "id": 3,
+            "question": "Which Indian state is known for its beautiful beaches and picturesque landscapes?",
+            "A": "Sikkim",
+            "B": "Manipur",
+            "C": "Goa",
+            "D": "Uttarakhand",
+            "answer": "C"
+        },
+        { 
+            "id": 4,
+            "question": "Who is the current Prime Minister of India?",
+            "A": "Narendra Modi",
+            "B": "Vikas Maharaj",
+            "C": "Suresh Narayan",
+            "D": "Rahul Gandhi",
+            "answer": "A"
+        },
+        { 
+            "id": 5,
+            "question": "Who is the  Indian Cricket Team Captain?",
+            "A": "Virat Kohli",
+            "B": "Suresh Raina",
+            "C": "Rahul Dravid",
+            "D": "Rohit Sharma",
+            "answer": "D"
+        },
+        { 
+            "id": 6,
+            "question": "Which Indian city is known for its historical monuments?",
+            "A": "Delhi",
+            "B": "Mumbai",
+            "C": "Chennai",
+            "D": "Bangalore",
+            "answer": "B"
+        },
+        { 
+            "id": 7,
+            "question": "Which Indian city is known for IT Hub ?",
+            "A": "Delhi",
+            "B": "Mumbai",
+            "C": "Chennai",
+            "D": "Bangalore",
+            "answer": "D"
+        },
+        { 
+            "id": 8,
+            "question": "What is the capital City of Gujarat ",
+            "A": "Ahmedabad",
+            "B": "Gandhinagar",
+            "C": "Surat",
+            "D": "Vadodara",
+            "answer": "A"
+        },
+        {
+             "id": 9,
+            "question": "Which city of India Also known By Diamondcity?",
+            "A": "Ahmedabad",
+            "B": "Mumbai",
+            "C": "Surat",
+            "D": "Delhi",
+            "answer": "C"
+        },
+        { 
+            "id": 10,
+            "question": "Which Indian city is famous for its FlyoveBridges?",
+            "A": "Mumbai",
+            "B": "Delhi",
+            "C": "Surat",
+            "D": "Chennai",
+            "answer": "C"
+        }
+    ]
+}
