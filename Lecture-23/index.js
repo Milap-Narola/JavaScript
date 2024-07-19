@@ -1,77 +1,85 @@
-const toggleBtn = document.getElementById("toggle");
-const navBar = document.querySelector(".nav-bar");
-const sideBar = document.querySelector(".side-bar");
-const video = document.querySelector(".main-page .videos");
-const vidCards = document.querySelectorAll(".videos .card");
-const vidIcons = document.querySelectorAll(".videos .card .icons i");
+const API_KEY = 'AIzaSyCKDej9AdKJxHIYT1qB5bSRTfESpQCKA6w'; 
+const YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3';
 
-toggleBtn.addEventListener("click",  ()=> {
-    navBar.classList.toggle("hide");
-    sideBar.classList.toggle("show");
-});
 
-document.getElementById('toggle').addEventListener('click',  ()=> {
-    document.querySelector('.nav-bar').classList.toggle('active');
-});
-
-document.querySelector('.search-btn').addEventListener('click',  () =>{
-    const searchText = document.querySelector('.search-box input').value;
-    alert('Search for: ' + searchText);
-});
-
-document.querySelectorAll('.card .icons i').forEach(icon => {
-    icon.addEventListener('click', ()=> {
-        const action = this.classList.contains('fa-clock') ? 'Watch Later' : 'Add to Playlist';
-        alert(action + ' action clicked');
-    });
-});
-
-document.querySelectorAll('.side-bar ul li i').forEach(icon => {
-    icon.addEventListener('click',  ()=> {
-        const action = this.classList.contains('fa-home') ? 'Home' :
-            this.classList.contains('fa-compass') ? 'Explore' :
-                this.classList.contains('fa-chart-line') ? 'Subscriptions' :
-                    this.classList.contains('fa-caret-square-right') ? 'Library' : 'Other';
-        alert(action + ' icon clicked');
-    });
-});
-
-const fetchVideos = async () => {
-
-    let req = await fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=js&type=video&key=AIzaSyDypeeji_RP50cVWDQ4Vq6ZQd7EaiqGuhk')
+const getdata = async (query) => {
+    let req = await fetch(`${YOUTUBE_API_URL}/search?part=snippet&q=${query}&type=video&key=${API_KEY}`);
     let res = await req.json();
-    displayVideos(res)
-    return res;
+    mapper(res.items);
 }
 
+const mapper = (data) => {
+    document.getElementById("show_data").innerHTML = "";
 
-const displayVideos = (res) => {
-    const videoContainer = document.getElementById('video-container');
-    videoContainer.innerHTML = '';
+    data.map((item) => {
+        let poster = document.createElement("img");
+        poster.src = item.snippet.thumbnails.high.url;
+        poster.setAttribute("id", "poster");
 
-    res.map(video => {
-        let videoCard = `<div class="card">
-                <div class="card-image">
-                    <img src="${video.thumbnail}" alt="${video.title}">
-                </div>
-                <div class="content">
-                    <img src="${video.channelThumbnail}" alt="${video.channelName}">
-                    <div class="info">
-                        <h4>${video.title}</h4>
-                        <p>${video.channelName} • ${video.views} views • ${video.publishedAt}</p>
-                    </div>
-                </div>
-                <div class="icons">
-                    <i class="fas fa-clock"></i>
-                    <i class="fas fa-list"></i>
-                </div>
-            </div>
-        `;
-        videoContainer.innerHTML += videoCard;
+        poster.addEventListener("click", () => {
+            localStorage.setItem("videoId", item.id.videoId);
+            showVideoPage();
+        });
 
-        console.log(vidCards);
+        let title = document.createElement("h6");
+        title.innerHTML = item.snippet.title;
+
+        let channel = document.createElement("div");
+        channel.innerHTML = item.snippet.channelTitle;
+        channel.setAttribute("class", "channel");
+
+        let box = document.createElement("div");
+        box.append(poster, title, channel);
+        box.setAttribute("id", "box");
+        document.getElementById("show_data").append(box);
     });
 }
 
 
-fetchVideos()
+const handledata = (e) => {
+    e.preventDefault();
+    let search = document.getElementById("input").value;
+    getdata(search);
+}
+
+
+if (document.getElementById("search-form")) {
+    document.querySelector(".search-btn").addEventListener("click", handledata);
+}
+
+
+const showVideoPage = async () => {
+    document.getElementById("search-section").style.display = "none";
+    document.getElementById("video-section").style.display = "block";
+
+    const videoId = localStorage.getItem("videoId");
+
+    if (videoId) {
+        const response = await fetch(`${YOUTUBE_API_URL}/videos?part=snippet&id=${videoId}&key=${API_KEY}`);
+        const data = await response.json();
+
+        if (data.items && data.items.length > 0) {
+            const videoUrl = `https://www.youtube.com/embed/${videoId}`;
+            const iframe = document.createElement("iframe");
+            iframe.src = videoUrl;
+            iframe.width = "800";
+            iframe.height = "450";
+            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+            iframe.allowFullscreen = true;
+
+            document.getElementById("video-container").innerHTML = "";
+            document.getElementById("video-container").appendChild(iframe);
+        } else {
+            document.getElementById("video-container").innerHTML = "<p>Video details not found.</p>";
+        }
+    } else {
+        document.getElementById("video-container").innerHTML = "<p>No video selected.</p>";
+    }
+}
+
+
+document.getElementById("back-link")?.addEventListener("click", () => {
+    document.getElementById("search-section").style.display = "block";
+    document.getElementById("video-section").style.display = "none";
+    localStorage.removeItem("videoId");
+});
