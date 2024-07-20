@@ -29,7 +29,8 @@ export const createUser = async (user) => {
         alert("User already exists");
     }
     else {
-        fetch("http://localhost:3000/user", {
+        fetch("http://localhost:3000/user", 
+            {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(user)

@@ -1,9 +1,10 @@
 {
-  "user": [
+  "users": [
     {
-      "id": "88ea",
-      "username": "Milap5322@gmail.com",
-      "password": "Milap5322"
+      "id": "179e",
+      "username": "Milap",
+      "email": "",
+      "password": ""
     }
   ],
   "products": [],
