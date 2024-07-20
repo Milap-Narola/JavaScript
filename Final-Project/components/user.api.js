@@ -1,6 +1,6 @@
 
 export const createUser = async (Data) => {
-    if (await isExists(user.email)) {
+    if (await isExists(users.email)) {
         alert("User already exists");
     }
     else {
