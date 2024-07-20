@@ -1,6 +1,6 @@
 
-export const createUser = async (Data) => {
-    if (await isExists(users.email)) {
+export const createUser = async (user) => {
+    if (await isExists(user.email)) {
         alert("User already exists");
     }
     else {
@@ -8,7 +8,7 @@ export const createUser = async (Data) => {
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(Data)
+                body: JSON.stringify(user)
 
             })
         // console.log(Data)
@@ -16,7 +16,7 @@ export const createUser = async (Data) => {
 }
 
 
-export const isExists = async (user) => {
+export const isExists = async (email) => {
 
 
         let req = await fetch(`http://localhost:3000/users?email=${email}`)
