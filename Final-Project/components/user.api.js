@@ -18,7 +18,7 @@ export const createUser = async (Data) => {
 
 export const isExists = async (user) => {
 
-    isExists = async (email) => {
+
         let req = await fetch(`http://localhost:3000/users?email=${email}`)
         let res = await req.json()
 
@@ -27,7 +27,7 @@ export const isExists = async (user) => {
         }
         else (false)
     }
-}
+
 
 export const getUser = async () => {
     let req = await fetch(`http://localhost:3000/users`)
