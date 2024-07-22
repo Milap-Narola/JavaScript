@@ -43,6 +43,7 @@ export const login = async (user) => {
     // console.log(res.length);
     if (res.length == 0) {
         alert("User not found");
+        window.location.href = '/Exam/html/signup.html';
     }
     else if (res.length == 1 && res[0].password == user.password) {
         alert("Logged in");
