@@ -1,8 +1,8 @@
 
 export const createUser = async (user) => {
     if (await isExists(user.email)) {
-        alert("User already exist");
-        window.location.href="/Final-Project/html/login.html";
+        alert("User already exist!");
+        window.location.href = "/Exam/html/login.html";
     }
     else {
         fetch(`http://localhost:3000/users`,
@@ -12,7 +12,8 @@ export const createUser = async (user) => {
                 body: JSON.stringify(user)
 
             })
-            window.location.href="/Final-Project/html/login.html";
+        alert('User added successfully!')
+        window.location.href = "/Exam/html/login.html";
         // console.log(Data)
     }
 }
@@ -36,14 +37,16 @@ export const getUser = async () => {
 }
 
 export const login = async (user) => {
-    let req = await fetch(`http://localhost:3000/users?email=${user.email}`)
+    // console.log(user);
+    let req = await fetch(`http://localhost:3000/users?email=${user.username}`)
     let res = await req.json()
-
+    // console.log(res.length);
     if (res.length == 0) {
         alert("User not found");
     }
     else if (res.length == 1 && res[0].password == user.password) {
         alert("Logged in");
+       
 
         document.getElementById("navbar").innerHTML = navbar("logout", res[0].username)
     }
@@ -52,7 +55,7 @@ export const login = async (user) => {
     }
     else {
         alert("Login failed");
-        window.location.href = '/Final-Project/html/signup.html';
+        window.location.href = '/Exam/html/signup.html';
 
     }
 }

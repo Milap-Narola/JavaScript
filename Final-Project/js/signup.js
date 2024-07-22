@@ -1,4 +1,4 @@
-// import navbar from "../components/navbar.js";
+import navbar from "../components/navbar.js";
 // document.getElementById("navbar").innerHTML = navbar()
 // const postUser=(username, password)=>{
 //       fetch('http://localhost:3000/user', {
@@ -37,13 +37,7 @@
 
 //     })
 import { createUser, getUser, isExists, } from '../components/user.api.js';
-
-
-
-
-// let id = -1;
-
-
+document.getElementById('navbar').innerHTML = navbar()
 
 
 const handleUser = async (e) => {
@@ -57,19 +51,14 @@ const handleUser = async (e) => {
     }
     localStorage.setItem("user", JSON.stringify(user));
 
-    if (await isExists(user.email)) {
-        alert("User already exist");
-        window.location.href="/Final-Project/html/login.html";
-    }
-    else {
-        await createUser(user);
-        alert('update successfull!')
-        window.location.href="../Final-Project/html/login.html";
-    }
+    createUser(user);
+    isExists(user);
 
 }
 
-let user = await getUser()
+
+
+// let user = await getUser()
 
 document.getElementById('signUp').addEventListener('submit', handleUser);
 

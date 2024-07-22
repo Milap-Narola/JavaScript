@@ -1,5 +1,5 @@
 
- 
+
 //  
 //  Delete User
 export const DeleteUser = async (id) => {
@@ -25,17 +25,17 @@ const isExists = async (email) => {
 // create a new user
 export const createUser = async (user) => {
 
-    if (await isExists (user.email)) {
+    if (await isExists(user.email)) {
         alert("User already exists");
     }
     else {
-        fetch("http://localhost:3000/user", 
+        fetch("http://localhost:3000/user",
             {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify(user)
+                method: "POST",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify(user)
 
-        })
+            })
             .then((req) => req.json())
             .then((res) => {
                 console.log(res);
@@ -92,8 +92,8 @@ export const login = async (user) => {
 
 
 
-export const updateUser=async(id ,data)=>{
-  let req=await  fetch(`http://localhost:3000/user/${id}`, {
+export const updateUser = async (id, data) => {
+    let req = await fetch(`http://localhost:3000/user/${id}`, {
         method: "PATCH",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data)

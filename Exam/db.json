@@ -1,0 +1,83 @@
+{
+  "users": [
+    {
+      "id": "22c5",
+      "username": "milap5322",
+      "email": "Milap5322@gmail.com",
+      "password": "MIlap5222",
+      "contact": "445465",
+      "city": "surat"
+    },
+    {
+      "id": "f8f9",
+      "username": "milap",
+      "email": "milap@gmail.com",
+      "password": "Milap5322",
+      "contact": "6644552233",
+      "city": "surat"
+    }
+  ],
+  "foodItems": [
+    {
+      "image": "https://www.momontimeout.com/wp-content/uploads/2012/05/biscuit-recipe-easy-1.jpg",
+      "foodName": "Veg Made from Scratch Biscuit",
+      "calories": "calories-430",
+      "price": 120
+    },
+    {
+      "image": "https://frontierenaturalmeats.com/cdn/shop/files/natural-grass-fed-smash-grill-burgers-8020-926617.jpg?v=1713891535",
+      "foodName": "Veg Grass-Fed All-Natural Burger",
+      "calories": "calories-280",
+      "price": 200
+    },
+    {
+      "image": "https://www.wellplated.com/wp-content/uploads/2016/03/Black-Bean-Vegan-Burger-Recipe.jpg",
+      "foodName": "Veg Avacado Burger",
+      "calories": "calories-220",
+      "price": 250
+    },
+    {
+      "image": "https://static.toiimg.com/photo/75690366.cms",
+      "foodName": "Veg Hot Dog",
+      "calories": "calories-300",
+      "price": 300
+    },
+    {
+      "image": "https://diabetesstrong.com/wp-content/uploads/2021/10/grilled-veggie-wraps-8.jpg",
+      "foodName": "Grilled Veggie Wrap",
+      "calories": "calories-780",
+      "price": 220
+    },
+    {
+      "image": "https://gran.luchito.com/wp-content/uploads/2019/07/Vegetarian_-Fajitas_1-4-660x500.jpg",
+      "foodName": "Veg Gran Lucito",
+      "calories": "calories-450",
+      "price": 350
+    },
+    {
+      "image": "https://www.bhg.com/thmb/9oezCfB5daAGSKJZEUuH9nGmCp0=/1244x0/filters:no_upscale():strip_icc()/cauliflower-corn-tacos-pico-verde-RU336321-1-91d2a6c417be43afa0581bfcbd738948.jpg",
+      "foodName": "Veg Cauliflower-Corn Tacos with Pico Verde",
+      "calories": "calories-350",
+      "price": 310
+    },
+    {
+      "image": "https://italianfoodforever.com/wp-content/uploads/2020/11/barleymushroomsaladtop.jpg",
+      "foodName": "Veg Warm Mushroom Barley & Kale Salad ",
+      "calories": "calories-120",
+      "price": 260
+    },
+    {
+      "image": "https://www.maggi.in/sites/default/files/srh_recipes/d1d74216ba5fa7ce5d72b8e121afe69f.jpg",
+      "foodName": "Khaman Dhokla",
+      "calories": "calories-840",
+      "price": 210
+    },
+    {
+      "image": "https://pbs.twimg.com/media/FEsrBajVgAAbdXC.jpg",
+      "foodName": "Gathiya ,Jalebi And Fafda",
+      "calories": "calories-680",
+      "price": 150
+    }
+  ],
+  "cart": []
+}
