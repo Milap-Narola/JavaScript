@@ -36,36 +36,40 @@
 
 
 //     })
-import { createUser, getUser, updateUser, } from '../components/user.api.js';
+import { createUser, getUser, isExists, } from '../components/user.api.js';
 
 
 
 
-let id = -1;
+// let id = -1;
 
 
 
 
-const handleUser = (e) => {
+const handleUser = async (e) => {
     e.preventDefault();
 
     let user = {
         username: document.getElementById('username').value,
         email: document.getElementById('email').value,
         password: document.getElementById('password').value,
-    }
-    if (id == -1) {
 
-        createUser(user);
+    }
+    localStorage.setItem("user", JSON.stringify(user));
+
+    if (await isExists(user.email)) {
+        alert("User already exist");
+        window.location.href="/Final-Project/html/login.html";
     }
     else {
-        alert('update user!')
-        updateUser(id, user);
+        await createUser(user);
+        alert('update successfull!')
+        window.location.href="../Final-Project/html/login.html";
     }
 
 }
 
-let data = await getUser()
+let user = await getUser()
 
 document.getElementById('signUp').addEventListener('submit', handleUser);
 

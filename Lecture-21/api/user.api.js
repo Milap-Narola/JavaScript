@@ -25,7 +25,7 @@ const isExists = async (email) => {
 // create a new user
 export const createUser = async (user) => {
 
-    if (await isExists(user.email)) {
+    if (await isExists (user.email)) {
         alert("User already exists");
     }
     else {

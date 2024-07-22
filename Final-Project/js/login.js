@@ -1,32 +1,24 @@
 import navbar from "../components/navbar.js";
+import { login } from "../components/user.api.js";
 
 document.getElementById("navbar").innerHTML = navbar();
-
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+    let user =
+    {
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value,
+    };
 
-    const username = document.getElementById('userName').value;
-    const password = document.getElementById('userPassword').value;
-
-    try {
-        const response = await fetch('http://localhost:3000/user');
-        const users = await response.json();
-        if (users) {
-            const user = users.find(user => user.username === username && user.password === password);
-
-            if (user) {
-                document.getElementById('navbar').innerHTML = navbar(users.username); 
-                localStorage.setItem('isLogin', 'true'); 
-                window.location.href = '/Final-Project/html/index.html';
-            } else {
-                alert('Invalid username or password' );
-                window.location.href = '/Final-Project/html/signup.html';
-            }
-        } else {
-            alert('No users found');
-            window.location.href = '/Final-Project/html/signup.html';
-        }
-    } catch (error) {
-        console.error('Error:', error);
+    if (user => user.username === username && user.password === password) {
+        login(user)
+        document.getElementById('navbar').innerHTML = navbar(user.username);
+        window.location.href = '/Final-Project/html/index.html';
     }
+    else {
+        alert('Invalid username or password');
+        window.location.href = '/Final-Project/html/signup.html';
+    }
+
+
 });

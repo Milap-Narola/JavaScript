@@ -253,7 +253,7 @@ const Mapper = (res) => {
     const productData = document.getElementById('products-container');
     productData.style.display = 'grid';
     productData.style.gridTemplateColumns = 'repeat(4, 1fr)';
-    res.map(ele => {
+    res.map((ele) => {
 
         let div = document.createElement('div');
         div.classList.add('product-card');
@@ -263,13 +263,16 @@ const Mapper = (res) => {
         image.style.width = "300px";
         image.style.height = "300px";
         image.style.gap = "10px";
-
+let button = document.createElement('button');
+        button.textContent = "Buy Now";
+        button.addEventListener('click', () => {(ele);
+        });
         let title = document.createElement('h3');
         title.textContent = ele.title;
 
         let price = document.createElement('p');
         price.textContent = `Price $${ele.price}`;
-        div.append(image, title, price);
+        div.append(image, title, price,button);
 
         productData.append(div);
     });
