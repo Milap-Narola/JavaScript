@@ -1,6 +1,8 @@
 import navbar from "../components/navbar.js";
-document.getElementById('navbar').innerHTML = navbar()
 
+document.getElementById('navbar').innerHTML = navbar();
+
+let food = [];
 
 const uiMaker = (data) => {
     data.forEach((ele) => {
@@ -16,11 +18,25 @@ const uiMaker = (data) => {
         calories.className = "calories";
 
         let price = document.createElement("h4");
-        price.innerHTML = `price: ${ele.price}Rs`;
+        price.innerHTML = `Price: ${ele.price} Rs`;
 
         let orderBtn = document.createElement("button");
         orderBtn.innerHTML = "Order";
-            orderBtn.className = "food-button";
+        orderBtn.className = "food-button";
+        orderBtn.addEventListener("click", () => {
+            let existingCart = JSON.parse(localStorage.getItem("cartList")) || [];
+            let itemIndex = existingCart.findIndex(item => item.id === ele.id);
+            
+            if (itemIndex >= 0) {
+                existingCart[itemIndex].qty += 1;
+            } else {
+                ele.qty = 1;
+                existingCart.push(ele);
+            }
+
+            localStorage.setItem("cartList", JSON.stringify(existingCart));
+            window.location.href = "/Exam/html/cart.html";
+        });
 
         let div = document.createElement("div");
         div.className = "food-item";
@@ -30,11 +46,10 @@ const uiMaker = (data) => {
     });
 };
 
-const foodApi = async () => {
-    let req = await fetch("http://localhost:3000/foodItems")
-    let res = await req.json()
-    console.log(res);
-    uiMaker(res)
-}
+const foodFetch = async () => {
+    let req = await fetch("https://json-server-deployment-1-0wec.onrender.com/foodItems");
+    let res = await req.json();
+    uiMaker(res);
+};
 
-foodApi()
+foodFetch();

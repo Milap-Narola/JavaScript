@@ -1,7 +1,7 @@
 
 const navbar = (login = "login", signup = "signup") => {
 
-    return `<nav class="navbar navbar-expand-lg  text-primary p-0">
+  return `<nav class="navbar navbar-expand-lg  text-primary p-0">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -16,6 +16,10 @@ const navbar = (login = "login", signup = "signup") => {
       </button>
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item">
+            <a class="nav-link text-light" href="/Exam/html/index.html">Home</a>
+          </li>
+          
           <li class="nav-item">
             <a class="nav-link text-light" href="/Exam/html/food.html">Menu</a>
           </li>
@@ -44,8 +48,8 @@ const navbar = (login = "login", signup = "signup") => {
     </div>
   </nav>
   `
-  }
-  
-  
-  
-  export default navbar
+}
+
+
+
+export default navbar

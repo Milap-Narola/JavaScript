@@ -263,16 +263,17 @@ const Mapper = (res) => {
         image.style.width = "300px";
         image.style.height = "300px";
         image.style.gap = "10px";
-let button = document.createElement('button');
+        let button = document.createElement('button');
         button.textContent = "Buy Now";
-        button.addEventListener('click', () => {(ele);
+        button.addEventListener('click', () => {
+            (ele);
         });
         let title = document.createElement('h3');
         title.textContent = ele.title;
 
         let price = document.createElement('p');
         price.textContent = `Price $${ele.price}`;
-        div.append(image, title, price,button);
+        div.append(image, title, price, button);
 
         productData.append(div);
     });

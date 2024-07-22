@@ -14,7 +14,8 @@ const handleUser = async (e) => {
         city: document.getElementById('city').value
 
     }
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("isLogin",true);
+    localStorage.setItem("loggedInUser", JSON.stringify(user))
     console.log(user)
     createUser(user);
     isExists(user);

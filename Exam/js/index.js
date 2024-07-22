@@ -6,7 +6,8 @@ let userdetails =JSON.stringify(localStorage.getItem("loggedInUser"));
 let isLogin = localStorage.getItem("loggedInUser") || false;
 
 if (!isLogin) {
-    window.location.href = "/Exam/html/signup.html"
+    
+    window.location.href = "/Exam/html/login.html"
 }
 
 
@@ -17,5 +18,5 @@ if (userdetails) {
 }
 else {
     
+    document.getElementById("navbar").innerHTML = navbar()
 }
-document.getElementById("navbar").innerHTML = navbar()
