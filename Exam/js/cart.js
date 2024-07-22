@@ -17,7 +17,7 @@ const Mapper = (cartList) => {
     cartList.forEach((cart, i) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-            <td><img src="${cart.image}" alt="${cart.foodName}"></td>
+            <td><img src="${cart.image}" id="img" alt="${cart.foodName}"></td>
             <td>${cart.foodName}</td>
             <td>${cart.calories}</td>
             <td>${cart.price}</td>
@@ -29,6 +29,7 @@ const Mapper = (cartList) => {
             <td>${cart.price * cart.qty}</td>
             <td><button onclick="handleDelete(${i})">Remove</button></td>
         `;
+        
         list.append(tr);
     });
 };

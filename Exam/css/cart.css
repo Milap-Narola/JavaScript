@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
@@ -55,10 +55,10 @@ th {
     color: #333;
 }
 
-td img {
+#img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 500px;
+
 }
 
 button {
