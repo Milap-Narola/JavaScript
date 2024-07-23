@@ -15,7 +15,7 @@ if (userdetails) {
 }
 
 const CourseGet = async () => {
-    let req = await fetch("http://localhost:3000/course");
+    let req = await fetch("https://json-server-deployment-6.onrender.com/course");
     let res = await req.json();
     uiMaker(res);
 }
@@ -63,7 +63,7 @@ const uiMaker = (data) => {
 
 const courseFetch = async () => {
 
-    const response = await fetch('http://localhost:3000/course');
+    const response = await fetch('https://json-server-deployment-6.onrender.com/course');
 
     const data = await response.json();
     return data;
@@ -72,7 +72,7 @@ const courseFetch = async () => {
 
 const addCourse = async (course) => {
 
-    const response = await fetch('http://localhost:3000/course', {
+    const response = await fetch('https://json-server-deployment-6.onrender.com/course', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ const addCourse = async (course) => {
 
 const updateCourseQuantity = async (id, increment) => {
 
-    const response = await fetch(`http://localhost:3000/course/${id}`);
+    const response = await fetch(`https://json-server-deployment-6.onrender.com/course?course=${course.id}`);
     const course = await response.json();
     course.quantity = (course.quantity || 1) + increment;
 
@@ -96,7 +96,7 @@ const updateCourseQuantity = async (id, increment) => {
         return;
     }
 
-    await fetch(`http://localhost:3000/course/${id}`, {
+    await fetch(`https://json-server-deployment-6.onrender.com/course?course=${course.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ const updateCourseQuantity = async (id, increment) => {
 
 const deleteCourse = async (id) => {
 
-    await fetch(`http://localhost:3000/course/${id}`, {
+    await fetch(`https://json-server-deployment-6.onrender.com/course?course=${course.id}`, {
         method: 'DELETE',
     });
 

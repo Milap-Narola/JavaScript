@@ -3,7 +3,7 @@
 
 export const isExists = async (email) => {
 
-    let req = await fetch(`https://json-server-deployment-1-0wec.onrender.com/users?email=${email}`)
+    let req = await fetch(`https://json-server-deployment-6.onrender.com/user?email=${email}`)
     let res = await req.json()
 
     if (res.length > 0) {
@@ -20,7 +20,7 @@ export const createUser = async (user) => {
         window.location.href = "/Exam-2/html/login.html";
     }
     else {
-        fetch(`https://json-server-deployment-1-0wec.onrender.com/users`,
+        fetch(`https://json-server-deployment-6.onrender.com/user`,
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -36,7 +36,7 @@ export const createUser = async (user) => {
 
 
 export const getUser = async () => {
-    let req = await fetch(`https://json-server-deployment-1-0wec.onrender.com/users`)
+    let req = await fetch(`https://json-server-deployment-6.onrender.com/user`)
     let res = await req.json()
     return res
 }
@@ -44,7 +44,7 @@ export const getUser = async () => {
 export const login = async (user) => {
     // console.log(user);
 
-    let req = await fetch(`https://json-server-deployment-1-0wec.onrender.com/users?email=${user.email}`)
+    let req = await fetch(`https://json-server-deployment-6.onrender.com/user?email=${user.email}`)
     let res = await req.json()
 
     // console.log(res.length);
@@ -58,7 +58,7 @@ export const login = async (user) => {
 
         document.getElementById("navbar").innerHTML = navbar(true, user.username);
         window.location.href = "/Exam-2/html/index.html"
-        localStorage.setItem("username", res[0].username);
+        // localStorage.setItem("username", res[0].username);
         localStorage.setItem("isLogin", true)
 
     }
