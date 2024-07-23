@@ -3,7 +3,7 @@
 
 export const isExists = async (email) => {
 
-    let req = await fetch(`https://json-server-deployment-6.onrender.com/user?email=${email}`)
+    let req = await fetch(`https://json-server-deployment-6.onrender.com/user?user=${user.email}`)
     let res = await req.json()
 
     if (res.length > 0) {
@@ -44,7 +44,7 @@ export const getUser = async () => {
 export const login = async (user) => {
     // console.log(user);
 
-    let req = await fetch(`https://json-server-deployment-6.onrender.com/user?email=${user.email}`)
+    let req = await fetch(`https://json-server-deployment-6.onrender.com/user?user=${user.email}`)
     let res = await req.json()
 
     // console.log(res.length);
