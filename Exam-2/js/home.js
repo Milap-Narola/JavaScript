@@ -14,6 +14,7 @@ if (userdetails) {
     document.getElementById("navbar").innerHTML = navbar();
 }
 
+
 const CourseGet = async () => {
     let req = await fetch("https://json-server-deployment-6.onrender.com/course");
     let res = await req.json();
