@@ -32,7 +32,7 @@ const navbar = (isLoggedIn = false, username = '') => {
             <a class="nav-link text-light" href="/Exam/html/login.html">${loginText}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="/Exam/html/signup.html">${signupText}</a>
+            <a class="nav-link text-light " href="/Exam/html/signup.html">${signupText}</a>
           </li>
         </ul>
         <form class="d-flex" role="search" id="searching">

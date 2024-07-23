@@ -17,7 +17,7 @@ const navbar = (login = "login", signup = "signup") => {
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link fw-bold" href="/Exam-2/html/home.html">Home</a>
+          <a class="nav-link fw-bold" href="/Exam-2/html/index.html">Home</a>
         </li>
         <li class="nav-item ">
           <a class="nav-link fw-bold" href="/Exam-2/html/dashboard.html">Dashboard</a>
@@ -26,7 +26,7 @@ const navbar = (login = "login", signup = "signup") => {
           <a class="nav-link fw-bold" href="/Exam-2/html/login.html">${login}</a>
         </li>
         <li class="nav-item">
-          <a  lass="nav-link fw-bold" href="/Exam-2/html/signup.html">${signup}</a>
+          <a  lass="nav-link fw-bold fs-1" href="/Exam-2/html/signup.html">${signup}</a>
         </li>
       </ul>
 

@@ -3,7 +3,7 @@
 
 export const isExists = async (email) => {
 
-    let req = await fetch(`https://json-server-deployment-6.onrender.com/user?user=${user.email}`)
+    let req = await fetch(`https://json-server-deployment-6.onrender.com/user?user=email${email}`)
     let res = await req.json()
 
     if (res.length > 0) {
@@ -41,10 +41,10 @@ export const getUser = async () => {
     return res
 }
 
-export const login = async (user) => {
+export const login = async (email) => {
     // console.log(user);
 
-    let req = await fetch(`https://json-server-deployment-6.onrender.com/user?user=${user.email}`)
+    let req = await fetch(`https://json-server-deployment-6.onrender.com/user?user=email${email}`)
     let res = await req.json()
 
     // console.log(res.length);
@@ -56,9 +56,9 @@ export const login = async (user) => {
     else if (res.length == 1 && res[0].password == user.password) {
         alert("Logged in successfully");
 
+        localStorage.setItem("username", res[0].username);
         document.getElementById("navbar").innerHTML = navbar(true, user.username);
         window.location.href = "/Exam-2/html/index.html"
-        // localStorage.setItem("username", res[0].username);
         localStorage.setItem("isLogin", true)
 
     }
