@@ -39,7 +39,8 @@ const uiMaker = (data) => {
 
         let description = document.createElement("p");
         description.innerHTML = ele.description;
-
+        description.style.height = '5rem'
+        description.style.overflow = 'hidden';
         let div = document.createElement("div");
         div.append(name, image, price, category, description);
 
@@ -48,17 +49,10 @@ const uiMaker = (data) => {
 }
 
 const courseFetch = async () => {
-    try {
         const response = await fetch('http://localhost:3000/course');
-        if (!response.ok) {
-            throw new Error('Failed to fetch courses');
-        }
         const data = await response.json();
         return data;
-    } catch (error) {
-        console.error('Error fetching courses:', error);
-        return [];
-    }
+
 }
 
 document.getElementById('sortByNameBtn').addEventListener('click', async () => {

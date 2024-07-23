@@ -39,6 +39,8 @@ const uiMaker = (data) => {
 
         let description = document.createElement("p");
         description.innerHTML = ele.description;
+        description.style.height = '5rem'
+        description.style.overflow = 'hidden';
 
         let incrementBtn = document.createElement("button");
         incrementBtn.innerHTML = "+";
@@ -60,81 +62,62 @@ const uiMaker = (data) => {
 }
 
 const courseFetch = async () => {
-    try {
-        const response = await fetch('http://localhost:3000/course');
-        if (!response.ok) {
-            throw new Error('Failed to fetch courses');
-        }
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching courses:', error);
-        return [];
-    }
+
+    const response = await fetch('http://localhost:3000/course');
+
+    const data = await response.json();
+    return data;
+
 }
 
 const addCourse = async (course) => {
-    try {
-        const response = await fetch('http://localhost:3000/course', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(course),
-        });
 
-        if (!response.ok) {
-            throw new Error('Failed to add course');
-        }
+    const response = await fetch('http://localhost:3000/course', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(course),
+    });
 
-        const newCourse = await response.json();
-        const courses = await courseFetch();
-        uiMaker(courses);
-
-    } catch (error) {
-        console.error('Error adding course:', error);
-    }
+    const newCourse = await response.json();
+    const courses = await courseFetch();
+    uiMaker(courses);
 }
 
 const updateCourseQuantity = async (id, increment) => {
-    try {
-        const response = await fetch(`http://localhost:3000/course/${id}`);
-        const course = await response.json();
-        course.quantity = (course.quantity || 1) + increment;
-        
-        if (course.quantity <= 0) {
-            await deleteCourse(id);
-            return;
-        }
 
-        await fetch(`http://localhost:3000/course/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(course),
-        });
+    const response = await fetch(`http://localhost:3000/course/${id}`);
+    const course = await response.json();
+    course.quantity = (course.quantity || 1) + increment;
 
-        const courses = await courseFetch();
-        uiMaker(courses);
-    } catch (error) {
-        console.error('Error updating course quantity:', error);
+    if (course.quantity <= 0) {
+        await deleteCourse(id);
+        return;
     }
+
+    await fetch(`http://localhost:3000/course/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(course),
+    });
+
+    const courses = await courseFetch();
+    uiMaker(courses);
+
 }
 
 const deleteCourse = async (id) => {
-    try {
-        await fetch(`http://localhost:3000/course/${id}`, {
-            method: 'DELETE',
-        });
 
-        const courses = await courseFetch();
-        uiMaker(courses);
-    } catch (error) {
-        console.error('Error deleting course:', error);
-    }
+    await fetch(`http://localhost:3000/course/${id}`, {
+        method: 'DELETE',
+    });
+
+    const courses = await courseFetch();
+    uiMaker(courses);
 }
-
 document.getElementById("addCourseForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const course = {
