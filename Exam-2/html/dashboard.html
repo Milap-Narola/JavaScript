@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard-page</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="/Exam-2/css/navbar.css">
+    <link rel="stylesheet" href="/Exam-2/css/Dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
     <div id="navbar"></div>
-  
+    <div id="courseContainer"></div>
+    <div id="addCourseDiv">
+        <h3>Add New Course</h3>
+        <form id="addCourseForm">
+            <input type="text" id="courseName" placeholder="Course Name" required>
+            <input type="text" id="courseImage" placeholder="Course Image URL" required>
+            <input type="number" id="coursePrice" placeholder="Course Price" required>
+            <input type="text" id="courseCategory" placeholder="Course Category" required>
+            <textarea id="courseDescription" placeholder="Course Description" required></textarea>
+            <button type="submit">Add Course</button>
+        </form>
+    </div>
 </body>
 <script type="module" src="/Exam-2/js/dashboard.js"></script>
 </html>

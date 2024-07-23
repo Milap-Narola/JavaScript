@@ -9,26 +9,6 @@ body {
     margin-bottom: 20px;
 }
 
-#btnDiv, #searching, #addCourseButtonContainer {
-    display: flex;
-    justify-content: center;
-    margin: 10px 0;
-}
-
-#btnDiv button, #addCourseButtonContainer button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#btnDiv button:hover, #addCourseButtonContainer button:hover {
-    background-color: #0056b3;
-}
-
 #courseContainer {
     display: flex;
     flex-wrap: wrap;
@@ -57,22 +37,53 @@ body {
     margin: 10px 0;
 }
 
-#searching input {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#searching button {
-    padding: 10px 20px;
+#courseContainer button {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #007bff;
     border: none;
-    background-color: #28a745;
     color: white;
     cursor: pointer;
     border-radius: 5px;
 }
 
-#searching button:hover {
+#courseContainer button:hover {
+    background-color: #0056b3;
+}
+
+#addCourseDiv {
+    margin: 20px auto;
+    width: 300px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#addCourseForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#addCourseForm input, #addCourseForm textarea {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#addCourseForm button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#addCourseForm button:hover {
     background-color: #218838;
 }
