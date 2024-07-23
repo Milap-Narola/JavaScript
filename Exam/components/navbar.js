@@ -1,5 +1,7 @@
 
-const navbar = (login = "login", signup = "signup") => {
+const navbar = (isLoggedIn = false, username = '') => {
+  const loginText = isLoggedIn ? 'Logout' : 'Login';
+  const signupText = isLoggedIn ? username : 'Signup';
 
   return `<nav class="navbar navbar-expand-lg  text-primary p-0">
     <div class="container-fluid">
@@ -27,10 +29,10 @@ const navbar = (login = "login", signup = "signup") => {
             <a class="nav-link text-light" href="/Exam/html/cart.html">Cart</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="/Exam/html/login.html">${login}</a>
+            <a class="nav-link text-light" href="/Exam/html/login.html">${loginText}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="/Exam/html/signup.html">${signup}</a>
+            <a class="nav-link text-light" href="/Exam/html/signup.html">${signupText}</a>
           </li>
         </ul>
         <form class="d-flex" role="search" id="searching">
@@ -48,7 +50,7 @@ const navbar = (login = "login", signup = "signup") => {
     </div>
   </nav>
   `
-}
+};
 
 
 

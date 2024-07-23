@@ -1,6 +1,6 @@
 
 export const createUser = async (user) => {
-    if (await isExists(user.email)) {
+    if (await isExists(user.username)) {
         alert("User already exist!");
         window.location.href = "/Exam/html/login.html";
     }
@@ -19,13 +19,14 @@ export const createUser = async (user) => {
 }
 
 
-export const isExists = async (email) => {
+export const isExists = async (user) => {
 
-    let req = await fetch(`https://json-server-deployment-1-0wec.onrender.com/users?email=${email}`)
+    let req = await fetch(`https://json-server-deployment-1-0wec.onrender.com/users?username=${user.username}`)
     let res = await req.json()
 
     if (res.length > 0) {
         return true
+
     }
     else (false)
 }
@@ -38,18 +39,21 @@ export const getUser = async () => {
 
 export const login = async (user) => {
     // console.log(user);
-    let req = await fetch(`https://json-server-deployment-1-0wec.onrender.com/users?email=${user.username}`)
+    let req = await fetch(`https://json-server-deployment-1-0wec.onrender.com/users?username=${user.username}`)
     let res = await req.json()
+    
     // console.log(res.length);
+
     if (res.length == 0) {
         alert("User not found");
         window.location.href = '/Exam/html/signup.html';
     }
     else if (res.length == 1 && res[0].password == user.password) {
-        alert("Logged in");
-        window.location.href = "/Exam/html/food.html"
-        
+        alert("Logged in successfully");
+
         // document.getElementById("navbar").innerHTML = navbar("logout", res[0].username)
+        document.getElementById("navbar").innerHTML = navbar(true, user.username);
+        window.location.href = "/Exam/html/food.html"
     }
     else if (res.length == 1 && res[0].password != user.password) {
         alert("password mismatch")
@@ -62,17 +66,17 @@ export const login = async (user) => {
 }
 
 
-export const updateUser = async (id, user) => {
-    let req = await fetch(`https://json-server-deployment-1-0wec.onrender.com/users/${id}`,
-        {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(user)
-        })
-}
+// export const updateUser = async (id, user) => {
+//     let req = await fetch(`https://json-server-deployment-1-0wec.onrender.com/users/${id}`,
+//         {
+//             method: "PATCH",
+//             headers: { "Content-Type": "application/json" },
+//             body: JSON.stringify(user)
+//         })
+// }
 
-export const DeleteUser = async (id) => {
-    let req = await fetch(`https://json-server-deployment-1-0wec.onrender.com/users/${id}`, {
-        method: "DELETE",
-    })
-}
+// export const DeleteUser = async (id) => {
+//     let req = await fetch(`https://json-server-deployment-1-0wec.onrender.com/users/${id}`, {
+//         method: "DELETE",
+//     })
+// }

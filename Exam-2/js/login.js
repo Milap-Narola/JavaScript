@@ -1,15 +1,18 @@
 import navbar from "../components/navbar.js";
-import { login } from "../components/user.api.js";
+import { login } from "../components/userApi.js";
 
-document.getElementById("navbar").innerHTML = navbar();
+
+let user = JSON.parse(localStorage.getItem("user"));
+
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     let user =
     {
-        username: document.getElementById('userName').value,
+        email: document.getElementById('email').value,
         password: document.getElementById('password').value,
     };
 
-    user = await login(user);
+await login(user);
 
 });
+document.getElementById("navbar").innerHTML = navbar();

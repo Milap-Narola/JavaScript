@@ -1,7 +1,7 @@
 import navbar from "../components/navbar.js";
-import { createUser, getUser, isExists, } from '../components/user.api.js';
 document.getElementById('navbar').innerHTML = navbar()
 
+import { createUser, isExists } from '../components/userApi.js';
 
 const handleUser = async (e) => {
     e.preventDefault();
@@ -10,14 +10,13 @@ const handleUser = async (e) => {
         username: document.getElementById('username').value,
         email: document.getElementById('email').value,
         password: document.getElementById('password').value,
-        contact: document.getElementById('contactNo').value,
-        city: document.getElementById('city').value
+        admin_user: document.getElementById('role').value,
 
     }
+    localStorage.setItem("user", JSON.stringify(user))
     localStorage.setItem("isLogin", true);
-    localStorage.setItem("loggedInUser", JSON.stringify(user))
-    console.log(user)
 
+    // console.log(user)
     createUser(user);
 
     isExists(user);
